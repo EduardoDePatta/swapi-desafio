@@ -29,7 +29,6 @@ class ShopCartStore {
     }
 
     get info() {
-
         return console.log(this.boughtItem);
     }
 }

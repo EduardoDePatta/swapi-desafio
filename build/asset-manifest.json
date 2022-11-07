@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d6e74114.css",
+    "main.js": "/static/js/main.110a67c3.js",
+    "static/js/787.050666f8.chunk.js": "/static/js/787.050666f8.chunk.js",
+    "static/media/spaceship-1.png": "/static/media/spaceship-1.aaebd7818bba256127e6.png",
+    "index.html": "/index.html",
+    "main.d6e74114.css.map": "/static/css/main.d6e74114.css.map",
+    "main.110a67c3.js.map": "/static/js/main.110a67c3.js.map",
+    "787.050666f8.chunk.js.map": "/static/js/787.050666f8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6e74114.css",
+    "static/js/main.110a67c3.js"
+  ]
+}

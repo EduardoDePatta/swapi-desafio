@@ -5,9 +5,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField } from "../../components/TextField";
 import { useState } from "react";
-
 import axios from "axios";
-
 import * as Yup from "yup";
 
 import {
@@ -26,17 +24,25 @@ import { StarsContainer } from "../Home/styles";
 import { Footer } from "../../components/Footer";
 
 const Checkout = () => {
+
+  const navigate = useNavigate();
+
   const [paymentMethod, setPaymentMethod] = useState<"boleto" | "creditCard">(
     "boleto"
-  );
-
-  const vehiclesStore = useContext(VehicleStore);
-  const { selectedVehicle } = vehiclesStore;
+    );
+    
+    
+    const vehiclesStore = useContext(VehicleStore);
+    const { selectedVehicle } = vehiclesStore;
+    
+    if (selectedVehicle == null){     
+      navigate('/');
+    }
 
   const shopStore = useContext(ShopCartStore);
   const { SetBoughtItem } = shopStore;
 
-  const navigate = useNavigate();
+
 
   const initialValues = {
     //user
@@ -115,6 +121,7 @@ const Checkout = () => {
     };
 
     SetBoughtItem(selectedVehicle, true, creditCardInfo);
+    window.alert(selectedVehicle)
 
     navigate("/checkout-result");
   };
@@ -186,13 +193,15 @@ const Checkout = () => {
                   placeholder="Insert your e-mail.."
                   error={errors.email}
                 />
-                <TextField
-                  label="Phone number:"
-                  name="tel"
-                  type="number"
-                  placeholder="Ex. 47991966020.."
-                  error={errors.tel}
-                />
+                <div>
+                  <TextField
+                    label="Phone number:"
+                    name="tel"
+                    type="number"
+                    placeholder="Ex. 47991966020.."
+                    error={errors.tel}
+                  />
+                </div>
                 <TextField
                   label="CPF/CNPJ:"
                   name="registryNumber"

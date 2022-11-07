@@ -17,7 +17,9 @@ import {
 import { StarsContainer } from '../Home/styles';
 
 
+
 const CheckoutResult = () => {
+
     const ShopStore = useContext(ShopCartStore);
     const { boughtItem, purchaseSucced } = ShopStore;
 

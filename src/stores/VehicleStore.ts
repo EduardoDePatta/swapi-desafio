@@ -8,6 +8,8 @@ class VehiclesDataStore {
   vehiclesData: VehicleDataInterface = {} as VehicleDataInterface;
   selectedVehicle: VehicleInterface | null = null;
 
+  
+
   constructor() {
     makeObservable(this, {
       vehiclesData: observable,
@@ -16,7 +18,7 @@ class VehiclesDataStore {
       info: computed,
     });
 
-    this.GetVehiclesData('https://swapi.dev/api/vehicles/');
+    this.GetVehiclesData('https://swapi.dev/api/vehicles/?format=json');
   }
   
 
@@ -30,10 +32,17 @@ class VehiclesDataStore {
   };
 
   SetSelectedVehicle = (vehicle: VehicleInterface) => {
-    if (!vehicle){
+    if (!vehicle ){
         return;
     }
-    this.selectedVehicle = vehicle;
+    if (vehicle.cost_in_credits == "unknown"){
+      this.selectedVehicle = null;
+      alert('Impossível comprar um veículo com valor indeterminado')
+      return
+    }
+    if (vehicle){
+      this.selectedVehicle = vehicle;
+    }
   }
 
   get info() {
